@@ -113,6 +113,10 @@ export interface CaseStudyItem {
   // shot hero photo, this lets us show the actual work without
   // pretending the screenshots are full-bleed hero art.
   gallery?: { src: string; caption?: string; alt?: string }[];
+  // Old and new captures of the same view, for "Website Visual Upgrade"
+  // projects — rendered as a drag-to-compare frame (components/work/
+  // BeforeAfter.tsx). Each pair must be the same size (1440×900).
+  beforeAfter?: { label: string; before: string; after: string; beforeAlt?: string; afterAlt?: string }[];
 }
 
 export interface TeamMember {

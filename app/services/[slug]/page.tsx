@@ -7,6 +7,10 @@ import {
   generateFAQSchema
 } from '@/lib/seo/schema';
 import { ServiceDetailClient } from './ServiceDetailClient';
+import { getCaseStudiesForService, getFeaturedCaseForService } from '@/lib/data/case-studies';
+import { FeaturedCase } from '@/components/services/FeaturedCase';
+import { WebBuildGroups } from '@/components/services/WebBuildGroups';
+import { ServiceWorkShowcase } from '@/components/services/ServiceWorkShowcase';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -69,6 +73,8 @@ export default async function ServicePage({ params }: Props) {
   // so we never ship an empty FAQPage stub (which would be a
   // truth-auditor block per CLAUDE.md §14.3).
   const faqSchema = service.faqs ? generateFAQSchema(service.faqs) : null;
+  const work = getCaseStudiesForService(slug);
+  const lead = getFeaturedCaseForService(slug);
 
   return (
     <>
@@ -95,7 +101,31 @@ export default async function ServicePage({ params }: Props) {
           }}
         />
       )}
-      <ServiceDetailClient service={service} />
+      <ServiceDetailClient
+        service={service}
+        workStrip={
+          lead ? (
+            <>
+              {/* proof first: the lead project, right under the title */}
+              <FeaturedCase caseStudy={lead} variant="hero" kicker="FEATURED_PROJECT" priority />
+              {/* Web Development: the rest of the work, grouped by how it was built */}
+              {slug === 'web-development' && <WebBuildGroups cases={work} excludeSlug={lead.slug} />}
+            </>
+          ) : undefined
+        }
+      />
+      {/* Other services: every project under the service, filterable by type
+          (empty for OnlyPixAI, so nothing renders there). Web Development
+          already lists its work in the groups above. */}
+      {slug !== 'web-development' && (
+        <ServiceWorkShowcase
+          serviceTitle={service.title}
+          cases={work}
+          allWorkHref={
+            slug === 'operations' ? undefined : `/work?capability=${encodeURIComponent(service.title)}`
+          }
+        />
+      )}
     </>
   );
 }

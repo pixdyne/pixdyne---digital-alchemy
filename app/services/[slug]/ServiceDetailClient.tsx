@@ -8,6 +8,9 @@ import { ServiceItem } from '@/types';
 
 interface ServiceDetailClientProps {
   service: ServiceItem;
+  // Server-rendered row of project thumbnails shown right under the title,
+  // so the work is visible before the first scroll.
+  workStrip?: React.ReactNode;
 }
 
 // Service titles that map 1:1 to a /work capability filter tab. The four
@@ -22,7 +25,7 @@ const WORK_CAPABILITY_TITLES = [
   'SEO & Content'
 ] as const;
 
-export const ServiceDetailClient: React.FC<ServiceDetailClientProps> = ({ service }) => {
+export const ServiceDetailClient: React.FC<ServiceDetailClientProps> = ({ service, workStrip }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isProduct = service.tier === 'product';
 
@@ -75,6 +78,8 @@ export const ServiceDetailClient: React.FC<ServiceDetailClientProps> = ({ servic
           )}
         </div>
       </div>
+
+      {workStrip && <div className="detail-anim mb-16 md:mb-20">{workStrip}</div>}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
         <div className="detail-anim col-span-1 md:col-span-2">
