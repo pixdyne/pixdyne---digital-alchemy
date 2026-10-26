@@ -6,6 +6,7 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { CaseStudyItem } from '@/types';
+import { BeforeAfter } from '@/components/work/BeforeAfter';
 
 interface WorkDetailClientProps {
   work: CaseStudyItem;
@@ -196,6 +197,24 @@ export const WorkDetailClient: React.FC<WorkDetailClientProps> = ({ work }) => {
               {work.solution}
             </p>
           </section>
+
+          {/* Visual upgrades: the old and new site in one frame */}
+          {work.beforeAfter && work.beforeAfter.length > 0 && (
+            <section className="work-content">
+              <h2 className="text-3xl md:text-4xl font-serif italic mb-2">Before and after</h2>
+              <p className="mb-8 text-sm text-brand-muted">Drag across each frame to compare the old site with the new one.</p>
+              <div className="flex flex-col gap-10">
+                {work.beforeAfter.map((pair) => (
+                  <figure key={pair.label}>
+                    <BeforeAfter {...pair} sizes="(max-width: 1280px) 100vw, 900px" />
+                    <figcaption className="mt-3 font-mono text-[11px] tracking-[0.25em] uppercase text-brand-muted">
+                      {pair.label} — before / after
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
 
           {gallery.length > 0 && (
             <div className="work-content flex flex-col gap-10 mt-4">

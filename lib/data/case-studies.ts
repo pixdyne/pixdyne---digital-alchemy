@@ -265,6 +265,55 @@ export const caseStudies: CaseStudyItem[] = [
     ]
   },
   {
+    // Added 2026-10 (owner request: a separate "Website Visual Upgrade"
+    // category, with tnts.com.au as its first project). Copy describes only
+    // what is visible on the live site.
+    // TBD(owner): confirm the engagement scope wording before publishing.
+    id: '33',
+    slug: 'tnts',
+    name: 'TNTS — Tea & Teas',
+    client: 'TNTS',
+    category: 'Website Visual Upgrade',
+    liveUrl: 'https://tnts.com.au/',
+    services: ['Web Development'],
+    stack: ['Shopify', 'Custom theme', 'Visual redesign'],
+    challenge:
+      "TNTS sells teas from the old forests of Yunnan through a Shopify store. The products carry a lot of story — origin, altitude, the way each tea is aged — and the storefront needed to show that story as clearly as it shows the price, without changing the catalogue or checkout the team already runs day to day.",
+    solution:
+      "We redesigned the storefront on the existing Shopify store. The home page opens on Yunnan forest photography with the season's new teas set beside it; a best-seller spotlight lays out each tea like a spec sheet — type, origin, latitude, tasting notes; and the menu lets customers browse by tea type, by form (loose leaf, cake, dragon ball) or by taste. Further down, the five tea types sit on one scale from fresh to fermented, the making of each tea is drawn step by step from plucking to ageing, and an illustrated map shows the four mountains the tea comes from. Products, orders and stock stay in the same Shopify back office, so nothing changed for the team behind the counter.",
+    shortDescription:
+      'Visual upgrade of a Shopify tea store — forest-led storytelling on the existing catalogue.',
+    seoTitle: 'TNTS — Shopify Store Visual Upgrade',
+    seoDescription:
+      'A visual upgrade of the TNTS Shopify tea store: Yunnan forest storytelling, spec-sheet product spotlights and browse-by-taste navigation on the existing catalogue. By Pixdyne.',
+    img: '/projects/TNTS_Home.webp',
+    gallery: [
+      { src: '/projects/TNTS_Home.webp', caption: 'Home — forest hero with the season’s new teas', alt: 'TNTS home page with Yunnan forest photography and three new teas' },
+      { src: '/projects/TNTS_Best_Seller.webp', caption: 'Best-seller spotlight laid out like a spec sheet', alt: 'TNTS best-seller section listing tea type, origin, latitude and notes' },
+      { src: '/projects/TNTS_Five_Teas.webp', caption: 'Five teas, one leaf — each tea placed on a scale from fresh to fermented', alt: 'TNTS section comparing five tea types, showing raw pu-erh on a scale from unoxidised to fermented' },
+      { src: '/projects/TNTS_Tea_Making.webp', caption: 'Whole leaf, made the old way — the steps from plucking to ageing', alt: 'TNTS section illustrating tea making steps: plucking, withering, fixing and rolling' },
+      { src: '/projects/TNTS_Tea_Map.webp', caption: 'Four mountains, one province — an illustrated map of where the tea grows', alt: 'TNTS illustrated map of Yunnan tea regions with Yiwu selected' }
+    ],
+    // "Before" = the live store as captured 2026-10-07, before the upgrade.
+    beforeAfter: [
+      {
+        label: 'Home page',
+        before: '/projects/TNTS_Before_Home.webp',
+        after: '/projects/TNTS_Home.webp',
+        beforeAlt: 'TNTS home page before the upgrade: a forest banner with a 2025 new arrival headline',
+        afterAlt: 'TNTS home page after the upgrade: forest photography with the season’s new teas'
+      },
+      {
+        label: 'Tea listing',
+        before: '/projects/TNTS_Before_Products.webp',
+        after: '/projects/TNTS_After_Products.webp',
+        beforeAlt: 'TNTS tea listing before the upgrade: a plain product grid on white',
+        afterAlt: 'TNTS tea listing after the upgrade: teas grouped into new arrivals and own-label collections'
+      }
+    ],
+    cardSize: 'small'
+  },
+  {
     id: '13',
     slug: 'muscle-city',
     name: 'Muscle City',
@@ -828,6 +877,103 @@ export function getHomepageHighlights(): CaseStudyItem[] {
     return match ? [match] : [];
   });
 }
+
+// Case studies that carry a given capability (the canonical service title,
+// e.g. 'Web Development'). Used by the /services pages to show real work
+// under each service. Array order is kept (owner-curated).
+export function getCaseStudiesForCapability(capability: string): CaseStudyItem[] {
+  return caseStudies.filter((c) => c.services?.includes(capability));
+}
+
+// Card image for a case study: the hero image when there is one, otherwise
+// the first gallery screenshot (same rule as WorkCard).
+export function getCaseStudyImage(c: CaseStudyItem): string | undefined {
+  return c.img?.trim() || c.gallery?.[0]?.src;
+}
+
+// Which case-study capabilities a /services page draws its work from. The
+// Operations bundle spans its two standalone lines; OnlyPixAI is our own
+// product and has no client work under it.
+const SERVICE_CAPABILITIES: Record<string, string[]> = {
+  'web-development': ['Web Development'],
+  'system-development': ['System Development'],
+  'managed-it': ['Managed IT'],
+  'seo-content': ['SEO & Content'],
+  operations: ['Managed IT', 'SEO & Content']
+};
+
+export function getCaseStudiesForService(serviceSlug: string): CaseStudyItem[] {
+  const caps = SERVICE_CAPABILITIES[serviceSlug] ?? [];
+  return caseStudies.filter((c) => c.services?.some((s) => caps.includes(s)));
+}
+
+// Which project each /services chapter shows. The owner curates the array
+// order above with the key projects first, so selection simply follows it:
+// walking the services in page order, each takes its earliest project with a
+// screenshot as its lead, then the next ones as supporting work, and no
+// project is shown under two services.
+const SERVICE_ORDER = ['web-development', 'system-development', 'operations', 'managed-it', 'seo-content'];
+
+function allocateByOrder(slugs: string[], perService: number, used: Set<string>): Map<string, CaseStudyItem[]> {
+  const out = new Map<string, CaseStudyItem[]>();
+  for (const slug of slugs) {
+    const picks = getCaseStudiesForService(slug)
+      .filter((c) => getCaseStudyImage(c) && !used.has(c.slug))
+      .slice(0, perService);
+    picks.forEach((c) => used.add(c.slug));
+    out.set(slug, picks);
+  }
+  return out;
+}
+
+export function getServiceShowcase(supportingCount = 2): {
+  featured: Map<string, CaseStudyItem>;
+  supporting: Map<string, CaseStudyItem[]>;
+} {
+  const used = new Set<string>();
+  const featured = new Map<string, CaseStudyItem>();
+  for (const [slug, [lead]] of allocateByOrder(SERVICE_ORDER, 1, used)) if (lead) featured.set(slug, lead);
+  // Operations has no supporting row — its projects show under Managed IT
+  // and SEO & Content — so it takes no part in filling the rows.
+  const supporting = allocateByOrder(SERVICE_ORDER.filter((slug) => slug !== 'operations'), supportingCount, used);
+  return { featured, supporting };
+}
+
+// The lead project a service detail page opens with — the same one its
+// chapter on /services leads with.
+export function getFeaturedCaseForService(serviceSlug: string): CaseStudyItem | undefined {
+  return getServiceShowcase().featured.get(serviceSlug) ?? getCaseStudiesForService(serviceSlug)[0];
+}
+
+// Web Development work grouped by how it was built, for the
+// /services/web-development page. Each group lists case-study categories.
+// TBD(owner): group titles and lines are new copy — confirm wording.
+export const WEB_BUILD_GROUPS: {
+  key: string;
+  title: string;
+  description: string;
+  categories: string[];
+}[] = [
+  {
+    key: 'new-build',
+    title: 'New websites',
+    description: 'Marketing and company sites, designed and built from the ground up.',
+    categories: ['Marketing Site']
+  },
+  {
+    key: 'stores-platforms',
+    title: 'Online stores & platforms',
+    description: 'Shopify storefronts, and sites wired into the systems that run the business behind them.',
+    categories: ['E-commerce', 'Integrated Platform']
+  },
+  {
+    key: 'visual-upgrade',
+    title: 'Website visual upgrade',
+    description:
+      'A new look for a site you already run — same platform, same products and orders, with the design and the experience brought up to date.',
+    categories: ['Website Visual Upgrade']
+  }
+];
 
 export function getCaseStudyBySlug(slug: string): CaseStudyItem | undefined {
   return caseStudies.find((c) => c.slug === slug);
