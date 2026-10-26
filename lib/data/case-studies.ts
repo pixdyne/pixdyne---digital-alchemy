@@ -286,7 +286,7 @@ export const caseStudies: CaseStudyItem[] = [
     seoTitle: 'TNTS — Shopify Store Visual Upgrade',
     seoDescription:
       'A visual upgrade of the TNTS Shopify tea store: Yunnan forest storytelling, spec-sheet product spotlights and browse-by-taste navigation on the existing catalogue. By Pixdyne.',
-    img: '/work/tnts.webp',
+    img: '/projects/TNTS_Home.webp',
     gallery: [
       { src: '/projects/TNTS_Home.webp', caption: 'Home — forest hero with the season’s new teas', alt: 'TNTS home page with Yunnan forest photography and three new teas' },
       { src: '/projects/TNTS_Best_Seller.webp', caption: 'Best-seller spotlight laid out like a spec sheet', alt: 'TNTS best-seller section listing tea type, origin, latitude and notes' },

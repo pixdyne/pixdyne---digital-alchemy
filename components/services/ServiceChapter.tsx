@@ -368,7 +368,7 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
                       href={inPage ? `#row-${sub.slug}` : `/services/${service.slug}`}
                       className="group flex h-full items-center justify-between gap-6 py-6 md:py-8"
                     >
-                      <span>
+                      <div>
                         <h3 className="font-serif italic text-3xl md:text-4xl leading-none text-brand-black">{sub.title}</h3>
                         {inPage ? (
                           <span className="mt-3 block max-w-sm text-sm leading-relaxed text-brand-black/75">
@@ -377,7 +377,7 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
                         ) : (
                           <span className="mt-3 block max-w-sm text-sm leading-relaxed text-brand-black/85">{sub.description}</span>
                         )}
-                      </span>
+                      </div>
                       <Arrow size={22} aria-hidden="true" className="mt-1 shrink-0 text-brand-black transition-transform group-hover:translate-x-0.5" />
                     </Link>
                   </li>

@@ -78,7 +78,7 @@ export function WebBuildGroups({ cases, excludeSlug }: WebBuildGroupsProps) {
                 </div>
               </div>
             ) : g.shown.length === 1 ? (
-              <FeaturedCase caseStudy={g.shown[0]} variant="hero" />
+              <FeaturedCase caseStudy={g.shown[0]} variant="hero" headingLevel="h4" />
             ) : (
               <div className="work-grid-in grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
                 {g.shown.map((c, i) => (

@@ -12,12 +12,16 @@ interface FeaturedCaseProps {
   variant?: 'hero' | 'large' | 'small';
   kicker?: string;
   priority?: boolean;
+  // Heading level of the project name in the 'hero' variant. h2 by default;
+  // pass 'h4' when nested under an h3 (WebBuildGroups) so levels never skip.
+  headingLevel?: 'h2' | 'h3' | 'h4';
 }
 
 // A real project shown as proof. Server component; the only motion is a slow
 // zoom on hover.
-export function FeaturedCase({ caseStudy: c, variant = 'large', kicker, priority }: FeaturedCaseProps) {
+export function FeaturedCase({ caseStudy: c, variant = 'large', kicker, priority, headingLevel = 'h2' }: FeaturedCaseProps) {
   const img = getCaseStudyImage(c);
+  const Heading = headingLevel;
 
   const shot = (sizes: string, ratio: string) => (
     <div className={`${ratio} overflow-hidden rounded-xl border border-white/10 bg-brand-surface transition-colors duration-300 group-hover:border-brand-yellow/50`}>
@@ -53,7 +57,7 @@ export function FeaturedCase({ caseStudy: c, variant = 'large', kicker, priority
         </Link>
         <div className="lg:col-span-5">
           {kicker && <span className="text-brand-yellow font-mono text-xs tracking-widest block mb-4">{kicker}</span>}
-          <h2 className="text-3xl md:text-5xl font-serif italic leading-[1.05]">{c.name}</h2>
+          <Heading className="text-3xl md:text-5xl font-serif italic leading-[1.05]">{c.name}</Heading>
           <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-brand-muted">{c.category}</p>
           {c.shortDescription && (
             <p className="mt-5 text-base md:text-lg text-brand-text/85 leading-relaxed">{c.shortDescription}</p>
