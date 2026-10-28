@@ -69,9 +69,6 @@ export default function BlogPage() {
 
         {/* Header */}
         <div className="mb-16">
-          <span className="text-brand-yellow font-mono text-xs uppercase tracking-wider mb-2 block">
-            Blog
-          </span>
           <h1 className="text-5xl md:text-7xl font-serif italic">Journal</h1>
           <p className="mt-4 text-lg text-brand-black/70 max-w-2xl">
             Thoughts on web development, technical SEO, and building digital products that matter.

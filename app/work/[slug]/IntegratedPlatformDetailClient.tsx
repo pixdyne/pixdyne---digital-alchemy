@@ -88,15 +88,8 @@ export const IntegratedPlatformDetailClient: React.FC<IntegratedPlatformDetailCl
         </div>
       )}
 
-      {/* Flagship banner + hero. */}
+      {/* Hero. */}
       <header className={`${CONTAINER_OUTER} pt-32 md:pt-36 pb-12 md:pb-16`}>
-        <div className="reveal flex items-center gap-4 mb-10">
-          <span className="h-px w-12 bg-brand-yellow" aria-hidden="true" />
-          <span className="font-mono text-[11px] tracking-[0.35em] uppercase text-brand-yellow">
-            Flagship · Integrated Platform
-          </span>
-        </div>
-
         <h1 className="reveal font-serif italic text-white leading-[1.02] text-5xl sm:text-6xl md:text-7xl lg:text-[8.5rem]">
           {work.name}
         </h1>
@@ -202,11 +195,11 @@ export const IntegratedPlatformDetailClient: React.FC<IntegratedPlatformDetailCl
 
       {/* Narrative body — asymmetric, zigzag pairs. */}
       <div className="bg-brand-black border-t border-white/10">
-        {/* (01) Challenge — text left, image right */}
+        {/* Challenge — text left, image right */}
         <section className={`${CONTAINER_OUTER} pt-20 md:pt-28`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className={figureForChallenge ? 'lg:col-span-7' : 'lg:col-span-12 max-w-3xl'}>
-              <NarrativeSection number="01" title="About the client" body={work.challenge} />
+              <NarrativeSection title="About the client" body={work.challenge} />
             </div>
             {figureForChallenge && (
               <div className="lg:col-span-5 lg:pt-16">
@@ -218,7 +211,7 @@ export const IntegratedPlatformDetailClient: React.FC<IntegratedPlatformDetailCl
 
         <div className="h-16 md:h-24" aria-hidden="true" />
 
-        {/* (02) Solution — image left, text right (reversed for rhythm) */}
+        {/* Solution — image left, text right (reversed for rhythm) */}
         <section className={`${CONTAINER_OUTER} ${hasHighlights ? 'pb-16 md:pb-24' : 'pb-20 md:pb-28'}`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             {figureForSolution && (
@@ -227,7 +220,7 @@ export const IntegratedPlatformDetailClient: React.FC<IntegratedPlatformDetailCl
               </div>
             )}
             <div className={figureForSolution ? 'lg:col-span-7' : 'lg:col-span-12 max-w-3xl'}>
-              <NarrativeSection number="02" title="What we delivered" body={work.solution} />
+              <NarrativeSection title="What we delivered" body={work.solution} />
             </div>
           </div>
         </section>
@@ -235,9 +228,6 @@ export const IntegratedPlatformDetailClient: React.FC<IntegratedPlatformDetailCl
         {hasHighlights && (
           <section className={`${CONTAINER_PROSE} pb-20 md:pb-28`}>
             <div className="reveal">
-              <span className="block font-mono text-xs tracking-[0.3em] uppercase text-brand-yellow mb-4">
-                (03)
-              </span>
               <h2 className="font-serif italic text-white leading-tight text-3xl sm:text-4xl md:text-5xl mb-8">
                 Key capabilities
               </h2>
@@ -247,9 +237,10 @@ export const IntegratedPlatformDetailClient: React.FC<IntegratedPlatformDetailCl
                     key={i}
                     className="flex gap-4 text-white/75 text-lg md:text-xl leading-relaxed"
                   >
-                    <span className="text-brand-yellow font-mono text-sm pt-1 flex-shrink-0">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
+                    <span
+                      className="mt-[0.7em] h-1.5 w-1.5 rounded-full bg-brand-yellow flex-shrink-0"
+                      aria-hidden="true"
+                    />
                     <span>{h}</span>
                   </li>
                 ))}
@@ -275,9 +266,6 @@ export const IntegratedPlatformDetailClient: React.FC<IntegratedPlatformDetailCl
       {/* Closing CTA. */}
       <footer className="border-t border-white/10">
         <div className={`${CONTAINER_OUTER} py-20 md:py-28`}>
-          <span className="reveal block font-mono text-xs tracking-[0.25em] uppercase text-brand-yellow mb-6">
-            Keep going
-          </span>
           <Link
             href="/work"
             className="reveal group inline-flex items-baseline gap-4 font-serif italic text-white/40 hover:text-brand-yellow transition-colors duration-300"
@@ -356,16 +344,12 @@ const MetaRow: React.FC<MetaRowProps> = ({ label, value }) => (
 );
 
 interface NarrativeSectionProps {
-  number: string;
   title: string;
   body: string;
 }
 
-const NarrativeSection: React.FC<NarrativeSectionProps> = ({ number, title, body }) => (
+const NarrativeSection: React.FC<NarrativeSectionProps> = ({ title, body }) => (
   <section className="reveal">
-    <span className="block font-mono text-xs tracking-[0.3em] uppercase text-brand-yellow mb-4">
-      ({number})
-    </span>
     <h2 className="font-serif italic text-white leading-tight text-3xl sm:text-4xl md:text-5xl mb-8">
       {title}
     </h2>

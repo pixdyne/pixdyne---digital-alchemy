@@ -201,19 +201,6 @@ export const ProcessSection: React.FC = () => {
               shaped around your scope rather than a fixed template.
             </p>
           </AnimatedContent>
-
-          {/* Process indicator */}
-          <AnimatedContent distance={30} duration={0.6} delay={0.5}>
-            <div className="mt-8 flex items-center gap-2 text-xs font-mono text-brand-black/40">
-              <span>01</span>
-              <div className="w-8 h-[1px] bg-brand-black/20" />
-              <span>02</span>
-              <div className="w-8 h-[1px] bg-brand-black/20" />
-              <span>03</span>
-              <div className="w-8 h-[1px] bg-brand-black/20" />
-              <span>04</span>
-            </div>
-          </AnimatedContent>
         </div>
 
         {/* Right - phase cards. Mobile: a clean 2-col grid (no overlap).
@@ -296,15 +283,10 @@ export const ProcessSection: React.FC = () => {
                   });
                 }}
               >
-                {/* Number */}
-                <div className="flex items-start justify-between">
+                {/* Phase */}
+                <div className="flex items-start">
                   <span className="text-[10px] sm:text-xs font-mono text-brand-yellow border border-brand-yellow/30 px-1.5 sm:px-2 py-1">
                     {step.time}
-                  </span>
-                  {/* Ghost number stays subdued but clears WCAG 3:1 for
-                      large bold text on brand-black (a11y audit 2026-07-10) */}
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-text/45 group-hover:text-brand-yellow/60 transition-colors">
-                    {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
 

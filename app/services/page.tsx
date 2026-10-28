@@ -82,9 +82,6 @@ export default function ServicesIndexPage() {
           <div className="max-w-7xl mx-auto">
             {/* Hero block */}
             <header className="mb-16 md:mb-24 max-w-5xl">
-              <span className="text-brand-yellow font-mono text-xs sm:text-sm font-bold uppercase tracking-widest block mb-6">
-                Services
-              </span>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[9rem] font-serif italic leading-[0.95] text-brand-text mb-10">
                 Melbourne IT services, in full.
               </h1>
@@ -101,8 +98,7 @@ export default function ServicesIndexPage() {
         {/* The whole body of work, drifting slowly — the one moving element on
             the page. Full-bleed, under the hero. */}
         <section aria-label="From our work" className="pb-20 md:pb-28">
-          <div className="max-w-[88rem] mx-auto px-6 md:px-12 lg:px-16 mb-6 flex items-end justify-between gap-6">
-            <span className="text-brand-yellow font-mono text-xs tracking-widest">FROM_OUR_WORK</span>
+          <div className="max-w-[88rem] mx-auto px-6 md:px-12 lg:px-16 mb-6 flex items-end justify-end gap-6">
             <Link
               href="/work"
               className="group inline-flex items-center gap-2 text-xs uppercase tracking-widest text-brand-yellow hover:text-brand-yellow-hover transition-colors"

@@ -107,7 +107,7 @@ export default async function ServicePage({ params }: Props) {
           lead ? (
             <>
               {/* proof first: the lead project, right under the title */}
-              <FeaturedCase caseStudy={lead} variant="hero" kicker="FEATURED_PROJECT" priority />
+              <FeaturedCase caseStudy={lead} variant="hero" priority />
               {/* Web Development: the rest of the work, grouped by how it was built */}
               {slug === 'web-development' && <WebBuildGroups cases={work} excludeSlug={lead.slug} />}
             </>

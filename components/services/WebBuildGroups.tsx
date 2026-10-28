@@ -28,7 +28,6 @@ export function WebBuildGroups({ cases, excludeSlug }: WebBuildGroupsProps) {
 
   return (
     <section aria-labelledby="build-groups-heading" className="mt-20 md:mt-28">
-      <span className="text-brand-yellow font-mono text-xs tracking-widest block mb-3">HOW_WE_BUILD</span>
       <h2 id="build-groups-heading" className="text-4xl md:text-6xl font-serif italic leading-[1.05] mb-4">
         Three ways we build websites
       </h2>
@@ -38,13 +37,10 @@ export function WebBuildGroups({ cases, excludeSlug }: WebBuildGroupsProps) {
       </p>
 
       <div className="border-t border-white/10">
-        {groups.map((g, gi) => (
+        {groups.map((g) => (
           <div key={g.key} className="border-b border-white/10 py-12 md:py-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 mb-8">
               <div className="lg:col-span-5">
-                <span className="text-xs font-mono text-brand-yellow tracking-widest block mb-3">
-                  {String(gi + 1).padStart(2, '0')} · {g.all.length} {g.all.length === 1 ? 'PROJECT' : 'PROJECTS'}
-                </span>
                 <h3 className="text-3xl md:text-4xl font-serif italic leading-tight">{g.title}</h3>
               </div>
               <p className="lg:col-span-7 lg:pt-8 text-base md:text-lg text-brand-text/80 leading-relaxed max-w-2xl">
@@ -60,8 +56,7 @@ export function WebBuildGroups({ cases, excludeSlug }: WebBuildGroupsProps) {
                   <BeforeAfter {...g.shown[0].beforeAfter[0]} sizes="(max-width: 1024px) 100vw, 60vw" />
                 </figure>
                 <div className="lg:col-span-4">
-                  <span className="font-mono text-xs tracking-widest text-brand-yellow">BEFORE / AFTER</span>
-                  <Link href={`/work/${g.shown[0].slug}`} className="group mt-3 block">
+                  <Link href={`/work/${g.shown[0].slug}`} className="group block">
                     <span className="block font-serif italic text-3xl md:text-4xl text-brand-text group-hover:text-brand-yellow transition-colors">{g.shown[0].name}</span>
                     <span className="mt-1 block text-[11px] uppercase tracking-[0.16em] text-brand-muted">{g.shown[0].category}</span>
                   </Link>

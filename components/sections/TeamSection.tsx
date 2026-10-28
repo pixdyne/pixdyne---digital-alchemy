@@ -18,29 +18,24 @@ if (typeof window !== 'undefined') {
 }
 
 interface ApproachPillar {
-  number: string;
   title: string;
   body: string;
 }
 
 const pillars: ApproachPillar[] = [
   {
-    number: '01',
     title: 'We stick around',
     body: 'Most of our work has been built and operated with the same clients for years, not delivered and walked away from. The relationship is the project.'
   },
   {
-    number: '02',
     title: 'English and Mandarin',
     body: 'We work fluently in both English and Mandarin — across conversations, documentation, and ongoing support. Talk to us in whichever language fits your team best, and nothing gets lost in translation.'
   },
   {
-    number: '03',
     title: 'Built around your workflow',
     body: 'We design systems that fit how your team actually works, rather than asking the business to bend around the software. WordPress, NetSuite, custom CRMs — we pick what fits, not what is fashionable.'
   },
   {
-    number: '04',
     title: 'AI you can actually use',
     body: 'AI capability for your business and your customers, not a buzzword on our pitch deck. OnlyPixAI is the public proof of how we approach AI delivery.'
   }
@@ -154,15 +149,12 @@ export const TeamSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {pillars.map((pillar) => (
-            <div key={pillar.number} className="approach-pillar">
+            <div key={pillar.title} className="approach-pillar">
               <SpotlightCard
                 className="rounded-2xl h-full"
                 spotlightColor="rgba(200, 150, 42, 0.10)"
               >
                 <div className="p-6 md:p-8 lg:p-10">
-                  <span className="font-mono text-xs text-brand-yellow tracking-widest block mb-4">
-                    ({pillar.number})
-                  </span>
                   <h3 className="text-xl md:text-2xl lg:text-3xl font-serif italic text-brand-text mb-3 md:mb-4 leading-snug">
                     {pillar.title}
                   </h3>

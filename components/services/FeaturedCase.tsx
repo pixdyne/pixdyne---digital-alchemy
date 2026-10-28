@@ -10,7 +10,6 @@ interface FeaturedCaseProps {
   // 'large': screenshot with the caption under it (chapter on /services).
   // 'small': compact thumbnail + name (the two supporting projects).
   variant?: 'hero' | 'large' | 'small';
-  kicker?: string;
   priority?: boolean;
   // Heading level of the project name in the 'hero' variant. h2 by default;
   // pass 'h4' when nested under an h3 (WebBuildGroups) so levels never skip.
@@ -19,7 +18,7 @@ interface FeaturedCaseProps {
 
 // A real project shown as proof. Server component; the only motion is a slow
 // zoom on hover.
-export function FeaturedCase({ caseStudy: c, variant = 'large', kicker, priority, headingLevel = 'h2' }: FeaturedCaseProps) {
+export function FeaturedCase({ caseStudy: c, variant = 'large', priority, headingLevel = 'h2' }: FeaturedCaseProps) {
   const img = getCaseStudyImage(c);
   const Heading = headingLevel;
 
@@ -56,7 +55,6 @@ export function FeaturedCase({ caseStudy: c, variant = 'large', kicker, priority
           {shot('(max-width: 1024px) 100vw, 58vw', 'aspect-[16/10]')}
         </Link>
         <div className="lg:col-span-5">
-          {kicker && <span className="text-brand-yellow font-mono text-xs tracking-widest block mb-4">{kicker}</span>}
           <Heading className="text-3xl md:text-5xl font-serif italic leading-[1.05]">{c.name}</Heading>
           <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-brand-muted">{c.category}</p>
           {c.shortDescription && (
@@ -99,7 +97,6 @@ export function FeaturedCase({ caseStudy: c, variant = 'large', kicker, priority
       {shot('(max-width: 1024px) 100vw, 45vw', 'aspect-[16/10]')}
       <div className="mt-4 flex items-start justify-between gap-4">
         <div className="min-w-0">
-          {kicker && <span className="text-brand-yellow font-mono text-[11px] tracking-widest block mb-2">{kicker}</span>}
           <p className="font-serif italic text-2xl text-brand-text group-hover:text-brand-yellow transition-colors">{c.name}</p>
           {c.shortDescription && (
             <p className="mt-1.5 text-sm text-brand-muted leading-relaxed line-clamp-2">{c.shortDescription}</p>

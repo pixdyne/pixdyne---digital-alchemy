@@ -23,10 +23,6 @@ export const metadata: Metadata = {
 export default function OfflinePage() {
   return (
     <div className="min-h-dvh flex flex-col items-center justify-center bg-brand-black text-brand-text px-6 py-24 text-center">
-      <p className="font-mono text-xs uppercase tracking-[0.3em] text-brand-yellow mb-6">
-        No Connection
-      </p>
-
       <h1 className="font-serif italic text-4xl sm:text-5xl md:text-6xl leading-tight mb-6">
         You are offline
       </h1>

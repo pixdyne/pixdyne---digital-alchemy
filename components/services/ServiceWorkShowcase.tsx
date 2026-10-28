@@ -77,7 +77,6 @@ export function ServiceWorkShowcase({ serviceTitle, cases, allWorkHref }: Servic
       <div className="border-t border-white/20 pt-16 md:pt-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <span className="text-brand-yellow font-mono text-xs tracking-widest block mb-3">SELECTED_WORK</span>
             <h2 id="service-work-heading" className="text-4xl md:text-6xl font-serif italic leading-[1.05]">
               {serviceTitle} projects
             </h2>

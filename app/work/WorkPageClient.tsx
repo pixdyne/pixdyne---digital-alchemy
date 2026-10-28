@@ -156,9 +156,6 @@ export default function WorkPageClient({ caseStudies }: WorkPageClientProps) {
         </Link>
 
         <div className="work-header border-b border-white/20 pb-8">
-          <span className="text-brand-yellow text-xs font-mono tracking-wider mb-2 block">
-            SELECTED CASE STUDIES
-          </span>
           <h1 className="text-5xl md:text-7xl font-serif italic mb-4">Our Work</h1>
           <p className="text-brand-muted text-lg max-w-2xl leading-relaxed">
             Selected projects from Pixdyne — websites, custom systems, and ongoing

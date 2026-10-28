@@ -9,7 +9,6 @@ export const services: ServiceItem[] = [
   {
     id: '01',
     slug: 'web-development',
-    number: '01',
     title: 'Web Development',
     tier: 'service',
     description:
@@ -66,7 +65,6 @@ export const services: ServiceItem[] = [
   {
     id: '02',
     slug: 'system-development',
-    number: '02',
     title: 'System Development',
     tier: 'service',
     description:
@@ -124,7 +122,6 @@ export const services: ServiceItem[] = [
   {
     id: '03',
     slug: 'operations',
-    number: '03',
     title: 'Operations',
     tier: 'service',
     description:
@@ -227,7 +224,6 @@ export const services: ServiceItem[] = [
   {
     id: 'managed-it',
     slug: 'managed-it',
-    number: '04',
     title: 'Managed IT',
     tier: 'service',
     description:
@@ -274,7 +270,6 @@ export const services: ServiceItem[] = [
   {
     id: 'seo-content',
     slug: 'seo-content',
-    number: '05',
     title: 'SEO & Content',
     tier: 'service',
     description:
@@ -329,7 +324,6 @@ export const services: ServiceItem[] = [
   {
     id: 'PX',
     slug: 'onlypixai',
-    number: 'PX',
     title: 'OnlyPixAI',
     tier: 'product',
     externalUrl: 'https://www.onlypixai.com/',
@@ -407,7 +401,6 @@ export function getCapabilityCards(): CapabilityCard[] {
   return [
     {
       id: web.id,
-      number: '01',
       title: web.title,
       description: web.description,
       tags: web.tags,
@@ -415,7 +408,6 @@ export function getCapabilityCards(): CapabilityCard[] {
     },
     {
       id: system.id,
-      number: '02',
       title: system.title,
       description: system.description,
       tags: system.tags,
@@ -423,7 +415,6 @@ export function getCapabilityCards(): CapabilityCard[] {
     },
     {
       id: 'managed-it',
-      number: '03',
       title: managedIt.title,
       description: managedIt.description,
       tags: ['Hosting', 'SSL', 'Monitoring', 'Backups'],
@@ -431,7 +422,6 @@ export function getCapabilityCards(): CapabilityCard[] {
     },
     {
       id: 'seo-content',
-      number: '04',
       title: seoContent.title,
       description: seoContent.description,
       tags: ['SEO', 'Content', 'Analytics', 'Search Console'],

@@ -1,6 +1,6 @@
 // Per-service Open Graph image. Same layout language as the site root
 // OG (app/opengraph-image.tsx) but the headline swaps in the service
-// title and the kicker becomes the service number ("SERVICE 01" etc).
+// title. The top-right kicker matches the root card ("EST. 2018").
 // Generated at request time and cached at the edge — no static asset
 // required per service. Build is unaffected.
 
@@ -53,11 +53,7 @@ export default async function Image({
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   const headline = service?.title ?? 'Pixdyne Services';
-  const kicker = service
-    ? service.tier === 'product'
-      ? `PRODUCT · ${service.number}`
-      : `SERVICE · ${service.number}`
-    : 'SERVICES';
+  const kicker = 'EST. 2018';
 
   return new ImageResponse(
     (

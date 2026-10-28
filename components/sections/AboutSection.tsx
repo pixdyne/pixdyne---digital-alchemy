@@ -57,9 +57,6 @@ export const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero block */}
         <header className="mb-16 md:mb-24 max-w-5xl">
-          <span className="text-brand-yellow font-mono text-xs sm:text-sm font-bold uppercase tracking-widest block mb-6">
-            About
-          </span>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-serif italic leading-[0.95] text-brand-text mb-10">
             We&apos;ve been at this since 2018.
           </h1>
@@ -76,11 +73,8 @@ export const AboutSection: React.FC = () => {
         <div className="mb-20 md:mb-28">
           <h2 className="text-2xl font-bold mb-10">What we stand for</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
-            {PILLARS.map((pillar, i) => (
+            {PILLARS.map((pillar) => (
               <div key={pillar.title}>
-                <span className="text-xs font-mono text-brand-yellow tracking-widest block mb-4">
-                  ({String(i + 1).padStart(2, '0')})
-                </span>
                 <h3 className="text-xl md:text-2xl font-serif italic text-brand-yellow mb-4 leading-snug">
                   {pillar.title}
                 </h3>

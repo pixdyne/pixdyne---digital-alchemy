@@ -75,12 +75,9 @@ export const ClientLogosSection: React.FC = () => {
   return (
     <div className="w-full flex flex-col justify-center bg-brand-surface text-brand-text overflow-hidden relative py-16 sm:py-20 md:py-24">
       <div className="absolute top-16 sm:top-20 md:top-24 left-0 w-full px-4 sm:px-8 md:px-12 py-4 sm:py-6 flex justify-between items-baseline border-b border-white/10 z-10">
-        <h2 className="text-xs sm:text-sm font-mono font-bold text-brand-yellow tracking-widest uppercase">
-          Working ground
-        </h2>
-        <p className="text-xs text-brand-muted font-mono hidden sm:block uppercase tracking-widest">
+        <h2 className="text-xs sm:text-sm font-semibold text-brand-yellow">
           Platforms we deliver on
-        </p>
+        </h2>
       </div>
 
       {/* Primary marquee strip. Backdrop is a warm gold-tinted dark

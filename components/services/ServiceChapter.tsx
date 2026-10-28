@@ -184,11 +184,6 @@ function Row({ cases, tone, vw, className = '' }: { cases: CaseStudyItem[]; tone
 
 // ---------------------------------------------------------------- type
 
-function Kicker({ service, tone, className = '' }: { service: ServiceItem; tone: Tone; className?: string }) {
-  const label = service.tier === 'product' ? `PRODUCT · ${service.number}` : `SERVICE · ${service.number}`;
-  return <span className={`text-xs font-mono tracking-widest block mb-5 ${TONE[tone].accent} ${className}`}>{label}</span>;
-}
-
 function Title({ service, tone, className }: { service: ServiceItem; tone: Tone; className: string }) {
   const t = TONE[tone];
   const words = service.title.split(' ');
@@ -277,7 +272,6 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
     return (
       <section id={id} className="bg-brand-black border-t border-white/10 py-20 md:py-28 scroll-mt-24">
         <div className={WRAP}>
-          <Kicker service={service} tone="dark" />
           <Title service={service} tone="dark" className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem]" />
           <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             <Shot c={lead} tone="dark" vw={[100, 55]} size="lg" className="lg:col-span-7" motion="parallax" />
@@ -306,7 +300,6 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
       <section id={id} className="bg-brand-white py-24 md:py-36 scroll-mt-24">
         <div className={WRAP}>
           <div className="text-center max-w-4xl mx-auto">
-            <Kicker service={service} tone="light" />
             <Title service={service} tone="light" className={CHAPTER_TITLE} />
             <p className={`mt-6 mx-auto max-w-2xl text-brand-black/80 ${short ? 'text-xl md:text-2xl leading-snug' : 'text-base md:text-lg leading-relaxed'}`}>
               {service.description}
@@ -330,7 +323,6 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
         <div className={WRAP}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end">
             <div className="lg:col-span-7">
-              <Kicker service={service} tone="gold" />
               <Title service={service} tone="gold" className={CHAPTER_TITLE} />
             </div>
             <p className="lg:col-span-5 text-base md:text-lg leading-relaxed text-brand-black/85">{service.description}</p>
@@ -343,8 +335,7 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
                 data-reveal=""
                 className="group lg:col-span-7 rounded-3xl bg-brand-black p-7 md:p-10 flex flex-col"
               >
-                <span className="text-xs font-mono tracking-widest text-brand-yellow">FEATURED_PROJECT</span>
-                <span className="mt-3 block font-serif italic text-3xl md:text-4xl text-brand-text group-hover:text-brand-yellow transition-colors">{lead.name}</span>
+                <span className="block font-serif italic text-3xl md:text-4xl text-brand-text group-hover:text-brand-yellow transition-colors">{lead.name}</span>
                 <span className="mt-1 block text-[11px] uppercase tracking-[0.16em] text-brand-muted">{lead.category}</span>
                 {(() => {
                   const meta = getImageMeta(getCaseStudyImage(lead));
@@ -398,7 +389,6 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
         <div className={WRAP}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end">
             <div className="lg:col-span-6">
-              <Kicker service={service} tone="dark" />
               <Title service={service} tone="dark" className={CHAPTER_TITLE} />
               <p className="mt-6 text-base md:text-lg leading-relaxed text-brand-text/85 max-w-xl">{service.description}</p>
               <SeeAll service={service} tone="dark" total={total} className="mt-7" />
@@ -431,7 +421,6 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
         <div className={WRAP}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
             <div className="lg:col-span-7">
-              <Kicker service={service} tone="stone" />
               <Title service={service} tone="stone" className={CHAPTER_TITLE} />
             </div>
             <div className="lg:col-span-5">
@@ -464,7 +453,6 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
   return (
     <section id={id} className="bg-brand-black pt-28 md:pt-40 pb-20 md:pb-28 scroll-mt-24 border-t border-white/10">
       <div className={`${WRAP} text-center`}>
-        <Kicker service={service} tone="dark" />
         <Title service={service} tone="dark" className={CHAPTER_TITLE} />
         <p className="mt-8 mx-auto max-w-2xl text-xl md:text-2xl leading-snug text-brand-text/85">{service.description}</p>
         {service.tags.length > 0 && (
@@ -508,7 +496,7 @@ export function ServiceChapter({ service, variant, lead, pair, total }: ServiceC
               <Picture meta={shot} tone="dark" vw={[100, 62]} />
             </div>
             <span className="mt-4 block text-sm text-brand-text group-hover:text-brand-yellow transition-colors">{service.title}</span>
-            <span className="mt-0.5 block text-[11px] uppercase tracking-[0.16em] text-brand-muted">Product · {service.number}</span>
+            <span className="mt-0.5 block text-[11px] uppercase tracking-[0.16em] text-brand-muted">Product</span>
           </a>
         )}
       </div>
