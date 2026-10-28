@@ -61,7 +61,7 @@ export default function Landing({ domain, onRunAudit }: LandingProps) {
             padding: '6px 14px',
             borderRadius: '99px',
           }}>
-            A free check from Pixdyne · Est. 2018
+            A free check from Pixdyne
           </div>
 
           <h1 style={{

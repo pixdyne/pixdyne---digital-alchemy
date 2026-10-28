@@ -67,8 +67,8 @@ export const SiteFooter: React.FC = () => {
               Pixdyne.
             </Link>
             <p className="mt-6 text-base md:text-lg text-brand-muted leading-relaxed max-w-md">
-              A Melbourne-based long-term technology partner. Building and
-              operating websites, custom systems, and AI products since 2018.
+              A Melbourne-based long-term technology partner. We build and
+              operate websites, custom systems, and AI products.
             </p>
           </div>
 

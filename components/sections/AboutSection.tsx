@@ -11,7 +11,7 @@ const PILLARS: { title: string; body: string }[] = [
   {
     title: 'Long-term partnership.',
     body:
-      'Not a build-and-leave shop. We embed in the business lines we work with and grow alongside them. Several of our retainers have run continuously since 2018.'
+      'Not a build-and-leave shop. We embed in the business lines we work with and grow alongside them. Several of our retainers have run continuously for years.'
   },
   {
     title: 'Proven evolution.',

@@ -14,7 +14,7 @@ export const services: ServiceItem[] = [
     description:
       'Websites built and launched end-to-end — design, development, deployment, and the handover that lets your team take it from there.',
     fullDescription:
-      'Web development from a Melbourne team that has built and shipped sites since 2018. From WordPress and Shopify storefronts to Webflow marketing sites and fully bespoke product builds, we deliver websites that work for the business behind them. We pick the platform that fits how your team will run it after launch — not whatever was easiest to build.',
+      'Web development from a Melbourne team. From WordPress and Shopify storefronts to Webflow marketing sites and fully bespoke product builds, we deliver websites that work for the business behind them. We pick the platform that fits how your team will run it after launch — not whatever was easiest to build.',
     tags: [
       'WordPress',
       'Shopify',
@@ -115,7 +115,7 @@ export const services: ServiceItem[] = [
       {
         question: 'What if our needs change after the system is live?',
         answer:
-          'That is what Operations is for — ongoing development on the systems we have already shipped. Many of our clients have been on continuous-development retainers since 2018.'
+          'That is what Operations is for — ongoing development on the systems we have already shipped. Many of our clients have been on continuous-development retainers for years.'
       }
     ]
   },

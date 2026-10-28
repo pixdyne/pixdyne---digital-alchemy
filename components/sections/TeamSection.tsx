@@ -140,7 +140,7 @@ export const TeamSection: React.FC = () => {
           </div>
           <div className="text-left md:text-right mt-4 md:mt-0">
             <p className="font-sans text-sm max-w-none md:max-w-xs text-brand-muted leading-relaxed">
-              Since 2018, we have helped growing companies automate workflows,
+              We help growing companies automate workflows,
               replace manual operations, and scale on tools their teams can
               actually keep using.
             </p>

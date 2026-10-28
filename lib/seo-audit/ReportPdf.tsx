@@ -148,7 +148,7 @@ export function ReportDocument({ data }: { data: AuditData }) {
         </View>
 
         <View style={styles.footer} fixed>
-          <Text style={styles.footerText}>Pixdyne · Melbourne · Est. 2018</Text>
+          <Text style={styles.footerText}>Pixdyne · Melbourne</Text>
           <Text style={styles.footerText} render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`} />
         </View>
       </Page>

@@ -1,6 +1,6 @@
 // Per-service Open Graph image. Same layout language as the site root
 // OG (app/opengraph-image.tsx) but the headline swaps in the service
-// title. The top-right kicker matches the root card ("EST. 2018").
+// title.
 // Generated at request time and cached at the edge — no static asset
 // required per service. Build is unaffected.
 
@@ -53,7 +53,6 @@ export default async function Image({
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   const headline = service?.title ?? 'Pixdyne Services';
-  const kicker = 'EST. 2018';
 
   return new ImageResponse(
     (
@@ -70,7 +69,7 @@ export default async function Image({
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        {/* Top row — wordmark + kicker */}
+        {/* Top row — wordmark */}
         <div
           style={{
             display: 'flex',
@@ -88,16 +87,6 @@ export default async function Image({
             }}
           >
             PIXDYNE
-          </div>
-          <div
-            style={{
-              fontSize: 18,
-              letterSpacing: '0.24em',
-              color: '#8A847B',
-              fontWeight: 600,
-            }}
-          >
-            {kicker}
           </div>
         </div>
 
