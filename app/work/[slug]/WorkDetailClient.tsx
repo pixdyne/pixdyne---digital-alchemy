@@ -74,12 +74,10 @@ export const WorkDetailClient: React.FC<WorkDetailClientProps> = ({ work }) => {
       {/* Text-first header — project, what it is, live link all in
           first paint, never hidden behind the screenshot. */}
       <header className="w-full px-6 md:px-12 pt-6 md:pt-10 pb-10 md:pb-14 border-b border-white/10">
-        <span className="work-content block text-brand-yellow font-mono text-xs md:text-sm tracking-widest uppercase mb-3">
-          {work.category}
-        </span>
         <h1 className="work-content text-5xl md:text-7xl lg:text-8xl font-serif italic leading-[1.05] max-w-5xl">
           {work.name}
         </h1>
+        <p className="work-content mt-4 text-base md:text-lg text-brand-muted">{work.category}</p>
         {work.shortDescription && (
           <p className="work-content mt-6 text-lg md:text-xl text-brand-text/70 max-w-3xl leading-relaxed">
             {work.shortDescription}

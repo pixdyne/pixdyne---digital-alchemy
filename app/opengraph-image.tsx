@@ -37,7 +37,7 @@ export default async function Image() {
           fontFamily: 'system-ui, sans-serif',
         }}
       >
-        {/* Top row — wordmark + Est. */}
+        {/* Top row — wordmark */}
         <div
           style={{
             display: 'flex',
@@ -55,16 +55,6 @@ export default async function Image() {
             }}
           >
             PIXDYNE
-          </div>
-          <div
-            style={{
-              fontSize: 18,
-              letterSpacing: '0.24em',
-              color: '#8A847B',
-              fontWeight: 600,
-            }}
-          >
-            EST. 2018
           </div>
         </div>
 

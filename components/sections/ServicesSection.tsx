@@ -150,20 +150,19 @@ export const ServicesSection: React.FC = () => {
                   {/* Content area */}
                   <div className="relative z-10">
                     {/* Title row */}
-                    <div className="flex items-baseline gap-3 sm:gap-6 mb-4">
-                      <span className="text-xs font-mono text-brand-yellow">({card.number})</span>
+                    <div className="mb-4">
                       <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold uppercase tracking-tight text-brand-text group-hover:text-brand-yellow-hover transition-colors duration-300">
                         {card.title}
                       </h3>
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm sm:text-base md:text-lg text-brand-muted max-w-lg mb-6 sm:mb-8 ml-0 sm:ml-8 md:ml-12 group-hover:text-brand-text transition-colors">
+                    <p className="text-sm sm:text-base md:text-lg text-brand-muted max-w-lg mb-6 sm:mb-8 group-hover:text-brand-text transition-colors">
                       {card.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 ml-0 sm:ml-8 md:ml-12 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {card.tags.map(tag => (
                         <span key={tag} className="text-xs uppercase border border-white/20 px-2 sm:px-3 py-1.5 rounded-full hover:border-brand-yellow/50 transition-colors">
                           {tag}
@@ -180,12 +179,7 @@ export const ServicesSection: React.FC = () => {
                       absolute bottom corners for the horizontal rail. */}
                   <div className="relative z-30 mt-8 flex items-center justify-between gap-4 md:mt-0 md:static">
                     {/* Progress indicator */}
-                    <div className="flex items-center gap-2 md:absolute md:bottom-8 md:left-12">
-                      {/* /60 keeps the label quiet while clearing WCAG 4.5:1
-                          on the dark card (a11y audit 2026-07-10) */}
-                      <span className="text-xs font-mono text-brand-text/60">
-                        {String(index + 1).padStart(2, '0')} / {String(cards.length).padStart(2, '0')}
-                      </span>
+                    <div className="flex items-center md:absolute md:bottom-8 md:left-12" aria-hidden="true">
                       <div className="w-16 h-[1px] bg-white/20">
                         <div
                           className="h-full bg-brand-yellow"

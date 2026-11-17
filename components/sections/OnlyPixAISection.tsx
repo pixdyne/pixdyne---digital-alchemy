@@ -140,9 +140,6 @@ export const OnlyPixAISection: React.FC = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-24 grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
         {/* Left — editorial copy */}
         <div className="space-y-6">
-          <span className="opx-anim font-mono text-xs font-bold text-brand-yellow tracking-widest uppercase block">
-            From the Pixdyne workshop
-          </span>
           <h2 className="opx-anim text-5xl md:text-6xl lg:text-7xl font-serif italic leading-none">
             OnlyPixAI
           </h2>
@@ -192,7 +189,7 @@ export const OnlyPixAISection: React.FC = () => {
             <div className="absolute w-[320px] h-[320px] md:w-[440px] md:h-[440px] rounded-full border border-white/10" />
             <div className="absolute w-[210px] h-[210px] md:w-[280px] md:h-[280px] rounded-full border border-brand-yellow/20" />
 
-            {/* Centre wordmark — derived from the OnlyPixAI service.number = 'PX' */}
+            {/* Centre wordmark — PX is the OnlyPixAI monogram */}
             <div className="relative z-10 text-center pointer-events-none">
               <div className="text-3xl md:text-4xl font-serif italic text-brand-yellow leading-none">
                 PX

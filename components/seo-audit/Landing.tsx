@@ -61,7 +61,7 @@ export default function Landing({ domain, onRunAudit }: LandingProps) {
             padding: '6px 14px',
             borderRadius: '99px',
           }}>
-            A free check from Pixdyne · Est. 2018
+            A free check from Pixdyne
           </div>
 
           <h1 style={{
@@ -293,18 +293,15 @@ export default function Landing({ domain, onRunAudit }: LandingProps) {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 0, borderTop: '1px solid rgba(255,255,255,0.12)' }}>
             <div style={{ padding: '34px 32px 34px 0', borderRight: '1px solid rgba(255,255,255,0.10)' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#C8962A' }}>(01)</div>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '26px', color: '#F5F2ED', margin: '16px 0 12px' }}>Enter your domain</h3>
+              <h3 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '26px', color: '#F5F2ED', margin: '0 0 12px' }}>Enter your domain</h3>
               <p style={{ fontSize: '15px', lineHeight: 1.6, color: '#B7B0A6', margin: 0 }}>We discover your sitemap and crawl every page — no plugin, no verification, nothing to install.</p>
             </div>
             <div style={{ padding: '34px 32px', borderRight: '1px solid rgba(255,255,255,0.10)' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#C8962A' }}>(02)</div>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '26px', color: '#F5F2ED', margin: '16px 0 12px' }}>We run the checks</h3>
+              <h3 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '26px', color: '#F5F2ED', margin: '0 0 12px' }}>We run the checks</h3>
               <p style={{ fontSize: '15px', lineHeight: 1.6, color: '#B7B0A6', margin: 0 }}>Deterministic parsing of your HTML, headers and public APIs — AI-crawler access, schema, extractability and Core Web Vitals from field data. No AI, no guesswork.</p>
             </div>
             <div style={{ padding: '34px 0 34px 32px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#C8962A' }}>(03)</div>
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '26px', color: '#F5F2ED', margin: '16px 0 12px' }}>Two scores + fixes</h3>
+              <h3 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '26px', color: '#F5F2ED', margin: '0 0 12px' }}>Two scores + fixes</h3>
               <p style={{ fontSize: '15px', lineHeight: 1.6, color: '#B7B0A6', margin: 0 }}>An SEO score and a GEO readiness score, every issue grouped by dimension, and a fix list ranked by impact and effort.</p>
             </div>
           </div>
@@ -331,19 +328,16 @@ export default function Landing({ domain, onRunAudit }: LandingProps) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
           {[
             {
-              num: '(01)',
               title: 'Crawl & index',
               desc: 'robots, sitemaps, status codes, redirect chains, canonicals, orphan pages and crawl depth across your whole site.',
               tags: ['robots.txt', 'Sitemaps', 'Redirects'],
             },
             {
-              num: '(02)',
               title: 'On-page & speed',
               desc: 'Titles, meta, heading structure, alt coverage, plus Core Web Vitals from real-user field data — LCP, INP and CLS.',
               tags: ['Titles & meta', 'Core Web Vitals'],
             },
             {
-              num: '(03)',
               title: 'AI readability',
               desc: 'Which AI crawlers you allow, whether content survives without JS, answer-format structure and entity clarity.',
               tags: ['GPTBot', 'Extractability', 'Schema'],
@@ -351,8 +345,7 @@ export default function Landing({ domain, onRunAudit }: LandingProps) {
           ].map((item, idx) => (
             <SpotlightCard key={idx}>
               <div style={{ padding: '34px' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#8A847B' }}>{item.num}</div>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '26px', lineHeight: 1.18, color: '#F5F2ED', margin: '14px 0 12px' }}>{item.title}</h3>
+                <h3 style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '26px', lineHeight: 1.18, color: '#F5F2ED', margin: '0 0 12px' }}>{item.title}</h3>
                 <p style={{ fontSize: '15px', lineHeight: 1.6, color: '#B7B0A6', margin: '0 0 18px' }}>{item.desc}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   {item.tags.map(tag => (

@@ -37,7 +37,6 @@ export interface SubService {
 export interface ServiceItem {
   id: string;
   slug: string;
-  number: string;
   title: string;
   description: string;
   fullDescription: string;
@@ -71,7 +70,6 @@ export interface ServiceItem {
 // route (no deep-link anchor into the Operations bundle page).
 export interface CapabilityCard {
   id: string;
-  number: string;
   title: string;
   description: string;
   tags: string[];

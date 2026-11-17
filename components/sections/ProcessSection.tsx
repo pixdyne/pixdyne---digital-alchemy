@@ -184,7 +184,10 @@ export const ProcessSection: React.FC = () => {
             <SplitText
               text="Chaos."
               tag="h2"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif italic text-brand-yellow leading-none"
+              // brand-yellow-deep, not brand-yellow: this heading sits on
+              // bg-brand-white, where #C8962A is only 2.4:1 and fails WCAG
+              // even at display size. See CLAUDE.md §8.
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif italic text-brand-yellow-deep leading-none"
               textAlign="left"
               splitType="chars"
               delay={40}
@@ -200,19 +203,6 @@ export const ProcessSection: React.FC = () => {
               launch. Most projects move through four phases, with the timeline
               shaped around your scope rather than a fixed template.
             </p>
-          </AnimatedContent>
-
-          {/* Process indicator */}
-          <AnimatedContent distance={30} duration={0.6} delay={0.5}>
-            <div className="mt-8 flex items-center gap-2 text-xs font-mono text-brand-black/40">
-              <span>01</span>
-              <div className="w-8 h-[1px] bg-brand-black/20" />
-              <span>02</span>
-              <div className="w-8 h-[1px] bg-brand-black/20" />
-              <span>03</span>
-              <div className="w-8 h-[1px] bg-brand-black/20" />
-              <span>04</span>
-            </div>
           </AnimatedContent>
         </div>
 
@@ -296,15 +286,10 @@ export const ProcessSection: React.FC = () => {
                   });
                 }}
               >
-                {/* Number */}
-                <div className="flex items-start justify-between">
+                {/* Phase */}
+                <div className="flex items-start">
                   <span className="text-[10px] sm:text-xs font-mono text-brand-yellow border border-brand-yellow/30 px-1.5 sm:px-2 py-1">
                     {step.time}
-                  </span>
-                  {/* Ghost number stays subdued but clears WCAG 3:1 for
-                      large bold text on brand-black (a11y audit 2026-07-10) */}
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-text/45 group-hover:text-brand-yellow/60 transition-colors">
-                    {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
 

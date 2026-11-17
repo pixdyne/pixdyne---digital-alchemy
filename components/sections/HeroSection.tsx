@@ -52,7 +52,6 @@ export const HeroSection: React.FC = () => {
           <span className="block w-16 sm:w-24 h-[1px] bg-brand-black mb-1 sm:mb-2"></span>
           <span>Digital Alchemy</span>
           <span>Melbourne Technology Partner</span>
-          <span>Est. 2018</span>
         </div>
       </div>
 

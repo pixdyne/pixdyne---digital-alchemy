@@ -49,7 +49,6 @@ export const ServiceDetailClient: React.FC<ServiceDetailClientProps> = ({ servic
     return () => ctx.revert();
   }, [service]);
 
-  const protocolLabel = isProduct ? 'PRODUCT' : 'SERVICE';
   // Show the prominent header tag only when there is something
   // informative to put there: a real price, or the Product badge.
   // Services without a published price omit it (no "Get a quote" filler).
@@ -68,7 +67,6 @@ export const ServiceDetailClient: React.FC<ServiceDetailClientProps> = ({ servic
       <div className="detail-anim border-b border-white/20 pb-8 mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <span className="text-brand-yellow font-mono text-xs tracking-widest block mb-2">{protocolLabel}_{service.number}</span>
             <h1 className="text-[2.5rem] sm:text-6xl md:text-8xl font-serif italic text-brand-text text-balance leading-[1.05]">{service.title}</h1>
           </div>
           {tagLabel && (
